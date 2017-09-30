@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Girl {
@@ -12,6 +13,9 @@ public class Girl {
     private Integer id;
 
     private String cupSize;
+
+    @NotNull (message = "金额必传")
+    private Double money;
 
     @Min(value = 18, message = "未成年少女禁止入内")
     private Integer age;
@@ -43,11 +47,20 @@ public class Girl {
         this.age = age;
     }
 
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
+    }
+
     @Override
     public String toString() {
         return "Girl{" +
                 "id=" + id +
                 ", cupSize='" + cupSize + '\'' +
+                ", money=" + money +
                 ", age=" + age +
                 '}';
     }

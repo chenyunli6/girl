@@ -1,8 +1,10 @@
 package com.yunli.girl.controller;
 
 import com.yunli.girl.domain.Girl;
+import com.yunli.girl.domain.Result;
 import com.yunli.girl.repository.GirlRepository;
 import com.yunli.girl.service.GirlService;
+import com.yunli.girl.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +31,13 @@ public class GirlController {
     }
 
     @PostMapping(value = "/girls")
-    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult) {
+    public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
-            return null;
+            return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
         girl.setCupSize(girl.getCupSize());
         girl.setAge(girl.getAge());
-        return girlRepository.save(girl);
+        return ResultUtil.success(girlRepository.save(girl));
     }
 
     @GetMapping(value = "/girls/{id}")
@@ -66,5 +67,10 @@ public class GirlController {
     @PostMapping(value = "/girls/two")
     public void girlTwo() {
         girlService.insertTwo();
+    }
+
+    @GetMapping(value = "/girls/getAge/{id}")
+    public Girl getAge(@PathVariable("id") Integer id) throws Exception {
+        return girlService.getAge(id);
     }
 }

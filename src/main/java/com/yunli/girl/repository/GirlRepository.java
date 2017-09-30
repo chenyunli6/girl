@@ -1,5 +1,6 @@
-package com.yunli.girl;
+package com.yunli.girl.repository;
 
+import com.yunli.girl.domain.Girl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

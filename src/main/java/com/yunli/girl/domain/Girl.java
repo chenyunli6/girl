@@ -1,4 +1,4 @@
-package com.yunli.girl;
+package com.yunli.girl.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

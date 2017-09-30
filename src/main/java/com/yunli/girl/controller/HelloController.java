@@ -1,5 +1,6 @@
-package com.yunli.girl;
+package com.yunli.girl.controller;
 
+import com.yunli.girl.properties.GirlProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;

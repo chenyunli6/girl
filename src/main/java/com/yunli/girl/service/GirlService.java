@@ -1,5 +1,7 @@
-package com.yunli.girl;
+package com.yunli.girl.service;
 
+import com.yunli.girl.domain.Girl;
+import com.yunli.girl.repository.GirlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
